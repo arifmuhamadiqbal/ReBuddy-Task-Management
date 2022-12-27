@@ -1,4 +1,4 @@
-package com.example.calendar_app_task_management
+package com.example.rebuddy_task_management_reminder
 
 import io.flutter.embedding.android.FlutterActivity
 

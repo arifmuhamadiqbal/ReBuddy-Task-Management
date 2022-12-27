@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.calendar_app_task_management">
+    package="com.example.rebuddy_task_management_reminder">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
    <application
-        android:label="calendar_app_task_management"
+        android:label="rebuddy_task_management_reminder"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

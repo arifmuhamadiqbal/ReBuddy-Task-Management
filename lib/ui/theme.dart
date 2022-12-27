@@ -28,8 +28,8 @@ class Themes {
 TextStyle get HeadingStyle {
   return GoogleFonts.lato (
       textStyle: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
         color: Get.isDarkMode ? Colors.grey[400]: Colors.grey,
       )
   );
@@ -37,11 +37,11 @@ TextStyle get HeadingStyle {
 
 TextStyle get subHeadingStyle {
   return GoogleFonts.lato (
-    textStyle: TextStyle(
-      fontSize: 30,
-      fontWeight: FontWeight.bold,
-      color: Get.isDarkMode ? Colors.white: Colors.black,
-    )
+      textStyle: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: Get.isDarkMode ? Colors.white: Colors.black,
+      )
   );
 }
 

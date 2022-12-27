@@ -1,9 +1,9 @@
-import 'package:calendar_app_task_management/controller/task_controller.dart';
-import 'package:calendar_app_task_management/services/notification_services.dart';
-import 'package:calendar_app_task_management/services/theme_services.dart';
-import 'package:calendar_app_task_management/ui/theme.dart';
-import 'package:calendar_app_task_management/ui/widgets/button.dart';
-import 'package:calendar_app_task_management/ui/widgets/task_tile.dart';
+import 'package:rebuddy_task_management_reminder/controller/task_controller.dart';
+import 'package:rebuddy_task_management_reminder/services/notification_services.dart';
+import 'package:rebuddy_task_management_reminder/services/theme_services.dart';
+import 'package:rebuddy_task_management_reminder/ui/theme.dart';
+import 'package:rebuddy_task_management_reminder/ui/widgets/button.dart';
+import 'package:rebuddy_task_management_reminder/ui/widgets/task_tile.dart';
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -63,11 +63,10 @@ class _HomePageState extends State<HomePage> {
           color: Get.isDarkMode ? Colors.white : Colors.black,
         ),
       ),
-      actions: const [
-        CircleAvatar(
-          backgroundImage: AssetImage(
-              "images/icon-profile.png"
-          ),
+      actions: [
+        Icon(Icons.person,
+        size: 25,
+        color: Get.isDarkMode ? Colors.white : Colors.black,
         ),
         SizedBox(width: 15,
         ),
@@ -145,60 +144,60 @@ class _HomePageState extends State<HomePage> {
 
   _showTasks() {
     return Expanded(
-     child: Obx(() {
-       return ListView.builder(
-         itemCount: _taskController.taskList.length,
-           itemBuilder: (_, index) {
-           Task task = _taskController.taskList[index];
-           if (task.repeat == 'Daily') {
-             DateTime date = DateFormat.Hm().parse(task.startTime.toString());
-             var myTime = DateFormat("HH:mm").format(date);
-             NotifyHelper().scheduledNotification(
-               int.parse(myTime.toString().split(":")[0]),
-               int.parse(myTime.toString().split(":")[1]),
-               task,
-             );
-             return AnimationConfiguration.staggeredList(
-                 position: index,
-                 child: SlideAnimation(
-                   child: FadeInAnimation(
-                     child: Row(
-                       children: [
-                         GestureDetector(
-                           onTap: () {
-                             _showBottomSheet(context, task);
-                           },
-                           child: TaskTile(task),
-                         )
-                       ],
-                     ),
-                   ),
-                 )
-             );
-           }
-           if (task.date == DateFormat.yMd().format(_selectedDate)){
-             return AnimationConfiguration.staggeredList(
-                 position: index,
-                 child: SlideAnimation(
-                   child: FadeInAnimation(
-                     child: Row(
-                       children: [
-                         GestureDetector(
-                           onTap: () {
-                             _showBottomSheet(context, task);
-                           },
-                           child: TaskTile(task),
-                         )
-                       ],
-                     ),
-                   ),
-                 )
-             );
-           } else {
-             return Container();
-           }
-       });
-     }),
+      child: Obx(() {
+        return ListView.builder(
+            itemCount: _taskController.taskList.length,
+            itemBuilder: (_, index) {
+              Task task = _taskController.taskList[index];
+              if (task.repeat == 'Daily') {
+                DateTime date = DateFormat.Hm().parse(task.startTime.toString());
+                var myTime = DateFormat("HH:mm").format(date);
+                NotifyHelper().scheduledNotification(
+                  int.parse(myTime.toString().split(":")[0]),
+                  int.parse(myTime.toString().split(":")[1]),
+                  task,
+                );
+                return AnimationConfiguration.staggeredList(
+                    position: index,
+                    child: SlideAnimation(
+                      child: FadeInAnimation(
+                        child: Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                _showBottomSheet(context, task);
+                              },
+                              child: TaskTile(task),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                );
+              }
+              if (task.date == DateFormat.yMd().format(_selectedDate)){
+                return AnimationConfiguration.staggeredList(
+                    position: index,
+                    child: SlideAnimation(
+                      child: FadeInAnimation(
+                        child: Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                _showBottomSheet(context, task);
+                              },
+                              child: TaskTile(task),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                );
+              } else {
+                return Container();
+              }
+            });
+      }),
     );
   }
 
@@ -228,9 +227,9 @@ class _HomePageState extends State<HomePage> {
                   _taskController.markTaskCompleted(task.id!);
                   Get.back();
                 },
-              clr: Colors.green,
-              context: context
-                ),
+                clr: Colors.green,
+                context: context
+            ),
             _bottomSheetButton(
                 label: "Delete Task",
                 onTap: () {
@@ -263,7 +262,7 @@ class _HomePageState extends State<HomePage> {
     required Color clr,
     bool isClose = false,
     required BuildContext context,
-}) {
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(

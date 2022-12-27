@@ -1,4 +1,4 @@
-import 'package:calendar_app_task_management/ui/theme.dart';
+import 'package:rebuddy_task_management_reminder/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../theme.dart';
@@ -29,46 +29,46 @@ class MyInputField extends StatelessWidget {
             style: titleStyle,
           ),
           Container(
-            height: 52,
-            margin: const EdgeInsets.only(top: 8.0),
-            padding: const EdgeInsets.only(left: 14),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey,
-                width: 1.0
+              height: 52,
+              margin: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(left: 14),
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      color: Colors.grey,
+                      width: 1.0
+                  ),
+                  borderRadius: BorderRadius.circular(12)
               ),
-              borderRadius: BorderRadius.circular(12)
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                    child: TextFormField(
-                      readOnly: widget==null?false:true,
-                      autofocus: false,
-                      cursorColor: Get.isDarkMode?Colors.grey[100]:Colors.grey[700],
-                      controller: controller,
-                      style: subTitleStyle,
-                      decoration: InputDecoration(
-                        hintText: hint,
-                        hintStyle: subTitleStyle,
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: context.theme.backgroundColor,
-                            width: 0
+              child: Row(
+                children: [
+                  Expanded(
+                      child: TextFormField(
+                        readOnly: widget==null?false:true,
+                        autofocus: false,
+                        cursorColor: Get.isDarkMode?Colors.grey[100]:Colors.grey[700],
+                        controller: controller,
+                        style: subTitleStyle,
+                        decoration: InputDecoration(
+                          hintText: hint,
+                          hintStyle: subTitleStyle,
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: context.theme.backgroundColor,
+                                width: 0
+                            ),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: context.theme.backgroundColor,
+                                width: 0
+                            ),
                           ),
                         ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: context.theme.backgroundColor,
-                              width: 0
-                          ),
-                        ),
-                      ),
-                    )
-                ),
-                widget==null?Container():Container(child: widget),
-              ],
-            )
+                      )
+                  ),
+                  widget==null?Container():Container(child: widget),
+                ],
+              )
           )
         ],
       ),

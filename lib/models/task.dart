@@ -13,7 +13,7 @@ class Task {
     this.remind,
     this.isCompleted,
     this.color
-});
+  });
 
   Task.fromJson(Map<String,dynamic> json) {
     id = json['id'];

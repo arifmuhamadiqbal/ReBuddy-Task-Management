@@ -1,4 +1,4 @@
-import 'package:calendar_app_task_management/models/task.dart';
+import 'package:rebuddy_task_management_reminder/models/task.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBHelper {
@@ -13,23 +13,23 @@ class DBHelper {
     try {
       String _path = await getDatabasesPath() + 'tasks.db';
       _db = await openDatabase(
-          _path,
+        _path,
         version: _version,
         onCreate: (db, version) {
-            print("Creating a new one");
-            return db.execute(
-              "CREATE TABLE $_tableName ("
-                  "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                  "title STRING,"
-                  "note TEXT,"
-                  "date STRING,"
-                  "startTime STRING,"
-                  "endTime STRING,"
-                  "remind INTEGER,"
-                  "repeat STRING,"
-                  "color INTEGER,"
-                  "isCompleted INTEGER)",
-            );
+          print("Creating a new one");
+          return db.execute(
+            "CREATE TABLE $_tableName ("
+                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                "title STRING,"
+                "note TEXT,"
+                "date STRING,"
+                "startTime STRING,"
+                "endTime STRING,"
+                "remind INTEGER,"
+                "repeat STRING,"
+                "color INTEGER,"
+                "isCompleted INTEGER)",
+          );
         },
       );
     } catch (error) {
@@ -55,11 +55,11 @@ class DBHelper {
   }
 
   // update status task
-static update(int id) async {
+  static update(int id) async {
     return await _db!.rawUpdate('''
     UPDATE tasks
     SET isCompleted = ?
     WHERE id = ?
     ''', [1, id]);
-}
+  }
 }

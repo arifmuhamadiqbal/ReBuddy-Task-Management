@@ -23,10 +23,10 @@ class NotifiedPage extends StatelessWidget {
           color: Get.isDarkMode ? Colors.white : Colors.grey,
         ),
         title: Text("Your Task",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Get.isDarkMode ? Colors.white : Colors.black,
-        ),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Get.isDarkMode ? Colors.white : Colors.black,
+          ),
         ),
       ),
       body: Container(
@@ -35,21 +35,21 @@ class NotifiedPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("📌 " + this.label.toString().split("|")[0],
-            style: GoogleFonts.lato(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+              style: GoogleFonts.lato(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(height: 20,),
             Text("📋 Note :",
-            style: GoogleFonts.lato(
-              fontSize: 16,
-            ),),
+              style: GoogleFonts.lato(
+                fontSize: 16,
+              ),),
             SizedBox(height: 5,),
             Text(this.label.toString().split("|")[1],
-            style: GoogleFonts.lato(
-              fontSize: 16,
-            ),),
+              style: GoogleFonts.lato(
+                fontSize: 16,
+              ),),
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:calendar_app_task_management/ui/theme.dart';
+import 'package:rebuddy_task_management_reminder/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,10 +24,10 @@ class TaskTile extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(task?.title??"",
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(task?.title??"",
                     style: GoogleFonts.lato(
                       textStyle: TextStyle(
                         fontSize: 16,
@@ -35,43 +35,43 @@ class TaskTile extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    ),
-                    SizedBox(height: 12,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.access_time_rounded,
-                          color: Colors.grey[200],
-                          size: 18,
-                        ),
-                        SizedBox(width: 4,
-                        ),
-                        Text(
-                          "${task!.startTime} - ${task!.endTime}",
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey[100],
-                            ),
+                  ),
+                  SizedBox(height: 12,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.access_time_rounded,
+                        color: Colors.grey[200],
+                        size: 18,
+                      ),
+                      SizedBox(width: 4,
+                      ),
+                      Text(
+                        "${task!.startTime} - ${task!.endTime}",
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                            fontSize: 13,
+                            color: Colors.grey[100],
                           ),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 12,
-                    ),
-                    Text(
-                      task?.note??"",
-                      style: GoogleFonts.lato(
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 12,
+                  ),
+                  Text(
+                    task?.note??"",
+                    style: GoogleFonts.lato(
                         textStyle: TextStyle(
                           fontSize: 15,
                           color: Colors.grey[100],
                         )
-                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -80,7 +80,7 @@ class TaskTile extends StatelessWidget {
               color: Colors.grey[200]!.withOpacity(0.7),
             ),
             RotatedBox(
-                quarterTurns: 3,
+              quarterTurns: 3,
               child: Text(
                 task!.isCompleted == 1 ? "✅ Completed" : "⏳ To Do",
                 style: GoogleFonts.lato(
@@ -99,7 +99,7 @@ class TaskTile extends StatelessWidget {
   }
 
   // get user picked color from add task page
-_getBGClr(int no) {
+  _getBGClr(int no) {
     switch (no) {
       case 0:
         return bluishClr;

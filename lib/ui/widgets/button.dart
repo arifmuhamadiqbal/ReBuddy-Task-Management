@@ -1,4 +1,4 @@
-import 'package:calendar_app_task_management/ui/theme.dart';
+import 'package:rebuddy_task_management_reminder/ui/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

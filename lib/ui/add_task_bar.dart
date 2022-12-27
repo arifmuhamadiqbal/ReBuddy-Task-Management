@@ -1,7 +1,7 @@
-import 'package:calendar_app_task_management/controller/task_controller.dart';
-import 'package:calendar_app_task_management/ui/theme.dart';
-import 'package:calendar_app_task_management/ui/widgets/button.dart';
-import 'package:calendar_app_task_management/ui/widgets/input_field.dart';
+import 'package:rebuddy_task_management_reminder/controller/task_controller.dart';
+import 'package:rebuddy_task_management_reminder/ui/theme.dart';
+import 'package:rebuddy_task_management_reminder/ui/widgets/button.dart';
+import 'package:rebuddy_task_management_reminder/ui/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -40,26 +40,26 @@ class _AddTaskPageState extends State<AddTaskPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Add Task",
-              style: subHeadingStyle,),
+                style: subHeadingStyle,),
               MyInputField(
                 title: "Title",
                 hint: "Enter your title",
                 controller: _titleController,
               ),
               MyInputField(
-                  title: "Note",
-                  hint: "Enter your note",
+                title: "Note",
+                hint: "Enter your note",
                 controller: _noteController,
               ),
               MyInputField(title: "Date", hint: DateFormat.yMd().format(_selectedDate),
-              widget: IconButton(
-                icon: Icon(Icons.calendar_today_outlined,
-                color: Colors.grey,
+                widget: IconButton(
+                  icon: Icon(Icons.calendar_today_outlined,
+                    color: Colors.grey,
+                  ),
+                  onPressed: () {
+                    _getDateFromUser();
+                  },
                 ),
-                onPressed: () {
-                  _getDateFromUser();
-                },
-              ),
               ),
               Row(
                 children: [
@@ -69,13 +69,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
                         hint: _startTime,
                         widget: IconButton(
                           icon: Icon(Icons.access_time_rounded,
-                          color: Colors.grey,
+                            color: Colors.grey,
                           ),
                           onPressed: () {
                             _getTimeFromUser(isStartTime: true);
                           },
                         ),
-                  )),
+                      )),
                   SizedBox(width: 12,),
                   Expanded(
                       child: MyInputField(
@@ -95,7 +95,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
               MyInputField(title: "Remind Me", hint: "$_selectedRemind minutes early",
                 widget: DropdownButton(
                   icon: Icon(Icons.arrow_drop_down,
-                  color: Colors.grey,
+                    color: Colors.grey,
                   ),
                   iconSize: 32,
                   elevation: 4,
@@ -110,7 +110,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     return DropdownMenuItem<String>(
                       value: value.toString(),
                       child: Text(
-                        value.toString()
+                          value.toString()
                       ),
                     );
                   }
@@ -135,7 +135,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(
-                          value!, style: TextStyle(color: Colors.grey),
+                        value!, style: TextStyle(color: Colors.grey),
                       ),
                     );
                   }
@@ -173,10 +173,9 @@ class _AddTaskPageState extends State<AddTaskPage> {
         ),
       ),
       actions: [
-        CircleAvatar(
-          backgroundImage: AssetImage(
-              "images/icon-profile.png"
-          ),
+        Icon(Icons.person,
+          size: 25,
+          color: Get.isDarkMode ? Colors.white : Colors.black,
         ),
         SizedBox(width: 15,
         ),
@@ -186,12 +185,12 @@ class _AddTaskPageState extends State<AddTaskPage> {
 
   _getDateFromUser() async {
     DateTime? _pickerDate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2016),
-        lastDate: DateTime(2125),
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2016),
+      lastDate: DateTime(2125),
     );
-    
+
     if (_pickerDate!=null) {
       setState(() {
         _selectedDate = _pickerDate;
@@ -221,13 +220,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
   _showTimePicker() {
     return showTimePicker(
       initialEntryMode: TimePickerEntryMode.input,
-        context: context,
-        initialTime: TimeOfDay(
-          // _startTime --> 10:30
-            hour: int.parse(_startTime.split(":")[0]),
-            minute: int.parse(_startTime.split(":")[1]),
-            ),
-        );
+      context: context,
+      initialTime: TimeOfDay(
+        // _startTime --> 10:30
+        hour: int.parse(_startTime.split(":")[0]),
+        minute: int.parse(_startTime.split(":")[1]),
+      ),
+    );
   }
 
   _colorPallete() {
@@ -292,11 +291,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
       Get.back();
     } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
       Get.snackbar("Required", "Your title or note is empty !",
-      snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.white,
         colorText: Colors.black,
         icon: Icon(Icons.warning_amber_rounded,
-        color: Colors.black,),
+          color: Colors.black,),
       );
     }
   }

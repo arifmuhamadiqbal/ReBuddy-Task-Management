@@ -1,5 +1,5 @@
 
-import 'package:calendar_app_task_management/ui/notified_page.dart';
+import 'package:rebuddy_task_management_reminder/ui/notified_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
@@ -17,31 +17,31 @@ class NotifyHelper {
   initializeNotification() async {
     _configureLocalTimezone();
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings("appicon");
+    AndroidInitializationSettings("appicon");
 
-      const InitializationSettings initializationSettings =
-      InitializationSettings(
+    const InitializationSettings initializationSettings =
+    InitializationSettings(
       android:initializationSettingsAndroid,
     );
     await flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
-      onDidReceiveNotificationResponse: selectNotification);
+        initializationSettings,
+        onDidReceiveNotificationResponse: selectNotification);
   }
 
   // schedule notification
   scheduledNotification(int hour, int minutes, Task task) async {
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        task.id!.toInt(),
-        task.title,
-        task.note,
-        _convertTime(hour, minutes),
-        //tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
-        const NotificationDetails(
-            android: AndroidNotificationDetails('Id Chanel', 'Nama Chanel',)),
-        androidAllowWhileIdle: true,
-        uiLocalNotificationDateInterpretation:
-        UILocalNotificationDateInterpretation.absoluteTime,
-        matchDateTimeComponents: DateTimeComponents.time,
+      task.id!.toInt(),
+      task.title,
+      task.note,
+      _convertTime(hour, minutes),
+      //tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
+      const NotificationDetails(
+          android: AndroidNotificationDetails('Id Chanel', 'Nama Chanel',)),
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+      UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,
       payload: "${task.title}|" + "${task.note}|",
     );
   }
@@ -74,7 +74,7 @@ class NotifyHelper {
   // display notification
   displayNotification({required String title, required String body, required Task task}) async {
     var androidPlatformChannelSpecifics = const AndroidNotificationDetails('Id Chanel', 'Nama Chanel',
-    importance: Importance.max, priority: Priority.high);
+        importance: Importance.max, priority: Priority.high);
     var platformChannelSpecifics = NotificationDetails(
         android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
@@ -111,6 +111,6 @@ class NotifyHelper {
         ],
       ),
     );*/
-  Get.dialog(const Text("Welcome to flutter"));
+    Get.dialog(const Text("Welcome to flutter"));
   }
 }
