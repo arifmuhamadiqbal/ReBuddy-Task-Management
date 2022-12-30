@@ -18,7 +18,19 @@ ReBuddy diperuntukkan terutama bagi mereka yang memiliki masalah tentang melupak
 Maki dari itu ReBuddy menawarkan solusi berupa pengingat dan pencatat kegiata sehari-hari agar masalah mengenai lupa akan sesuatu menjadi teratasi.
 ReBuddy cocok untuk pekerja kantoran ataupun mahasiswa yang biasanya banyak kegiatan atau rapat yang perlu dilakukan. terutama bagi mahasiswa ReBuddy dapat membantu untuk mencatat tugas - tugas yang harus dikerjakan dengan pengingat deadline yang bisa kalian custom sendiri.
 # ReBuddy Features
-- ReBuddy terdapat 2 mode yaitu Light Mode dan Dark Mode
+ReBuddy terdapat 2 mode yaitu Light Mode dan Dark Mode
+Feature yang terdapat dalam REBuddy adalah sebagai berikut:
+- Adding Task
+- Input The Date
+- Input The Time
+- Choose Reminder
+- Choose Reapet
+- Choose Type of The Task
+- Task Notification
+- Task Detail
+# Visit Our Link
+Link Pitch Deck :(https://www.canva.com/design/DAFV60wPUk0/xlgK4xcads774Kp5QG3sAA/edit)
+Link Medium : (https://medium.com/@alif69131/rebuddy-task-management-reminder-8bdcb9f06f8e)
 
 
 
