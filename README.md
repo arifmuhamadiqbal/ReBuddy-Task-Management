@@ -32,6 +32,7 @@ Feature yang terdapat dalam REBuddy adalah sebagai berikut:
 - Task Detail
 # Visit Our Link
 Link Pitch Deck :(https://bit.ly/ReBuddy_pitch_deck)
+
 Link Medium : (https://medium.com/@alif69131/rebuddy-task-management-reminder-8bdcb9f06f8e)
 
 
